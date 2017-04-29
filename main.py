@@ -3,6 +3,9 @@ import pandas as pd
 import numpy as np
 import random
 
+from sklearn.feature_selection import SelectKBest
+from sklearn.feature_selection import chi2
+
 def read_form_exel():
     return pd.read_excel("D:\Files\Work\Prog\eatit\\USDA.xls")
 	
@@ -27,15 +30,17 @@ for ind, ingrs_str in enumerate(x):
         for i in ingrs:
             table[ind, ingrs_list.index(i)] = 1
 
-X = table
+test = SelectKBest(score_func=chi2, k=100)
+fit = test.fit(X, np.array(Y, dtype=int))
+
 
 clf = svm.SVC()
 print("LEARNING START")
-clf.fit(X, np.array(Y, dtype=int))
+clf.fit(fit.transform(X), np.array(Y, dtype=int))
 print("LEARNING END")
 
 a = np.zeros(len(ingrs_list), dtype=int)
 for i, _ in enumerate(a):
     if random.randint(0, 100) < 30:
         a[i] = 1
-print(clf.predict(a))
+print(clf.predict(fit.transform(a)))
