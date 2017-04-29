@@ -26,13 +26,13 @@
 					<h2 class="mdl-card__title-text">{{ name }}</h2>
 				</div>
 				<div class="mdl-card__supporting-text">
-				    {{ num }}
+				    <h3 class="mdl-card__title-text">{{ num }}</h3>
 				</div>
 			</div>
 			<br>
 			<div class="demo-card-square mdl-card mdl-shadow--2dp">
 				<div class="mdl-card__title">
-					<h2 class="mdl-card__title-text">Что скажешь об этом блюде?</h2>
+					<h2 class="mdl-card__title-text">Рецепт с <br><a href='http://allrecipes.com'>allrecipes.com</a></h2>
 				</div>
 				<div class="mdl-card__supporting-text">
 					<form method="POST" action="/">
