@@ -23,10 +23,10 @@
 			<br>
 			<div class="demo-card-square mdl-card mdl-shadow--2dp">
 				<div class="mdl-card__title">
-					<h2 class="mdl-card__title-text">{{ num }}</h2>
+					<h2 class="mdl-card__title-text">{{ name }}</h2>
 				</div>
 				<div class="mdl-card__supporting-text">
-				
+				    {{ num }}
 				</div>
 			</div>
 			<br>
@@ -38,7 +38,7 @@
 					<form method="POST" action="/">
 						<div class="mdl-textfield mdl-js-textfield">
 							<input class="mdl-textfield__input" type="text" name="url">
-							<label class="mdl-textfield__label" for="sample1">URL</label>
+							<label class="mdl-textfield__label" for="sample1">Номер рецепта</label>
 						</div>
 						<input type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
 					</form>
