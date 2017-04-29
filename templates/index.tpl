@@ -2,33 +2,48 @@
 <head>
 <title></title>
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-	<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-yellow.min.css" />
+	<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.yellow-indigo.min.css" />
+	<script src="js/material.min.js"></script>
+	<style>
+		.demo-card-square.mdl-card {
+			width: 600px;
+		}
+		.mybody {
+			background: #ECEFF1;
+		}
+	</style>
 </head>
-<body>
+<body class="mybody">
 	<header class="mdl-layout__header">
 		<div class="mdl-layout__header-row">
-			<span class="mdl-layout__title">EatIt</span>
+			<h1></h1><span class="mdl-layout__title">EatIt</span></h1>
 		</div>
 	</header>
 	<center>
 			<br>
-			<div class="mdl-card mdl-shadow--2dp">
+			<div class="demo-card-square mdl-card mdl-shadow--2dp">
 				<div class="mdl-card__title">
 					<h2 class="mdl-card__title-text">{{ num }}</h2>
 				</div>
 				<div class="mdl-card__supporting-text">
-				s
+				
 				</div>
-				<div class="mdl-card__actions mdl-card--border">
-					<a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
-						Dislike
-					</a>
-					<a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
-						Like
-					</a>
+			</div>
+			<br>
+			<div class="demo-card-square mdl-card mdl-shadow--2dp">
+				<div class="mdl-card__title">
+					<h2 class="mdl-card__title-text">Что скажешь об этом блюде?</h2>
+				</div>
+				<div class="mdl-card__supporting-text">
+					<form method="POST" action="/">
+						<div class="mdl-textfield mdl-js-textfield">
+							<input class="mdl-textfield__input" type="text" name="url">
+							<label class="mdl-textfield__label" for="sample1">URL</label>
+						</div>
+						<input type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
+					</form>
 				</div>
 			</div>
 	</center>
-	<script src="js/material.min.js"></script>
 </body>
 </html>

@@ -17,7 +17,11 @@ s = read_form_exel()
 x = s.values[:, 2]
 Y = s.values[:, 1]
 
-voc = {"[1]": "завтрак", "[2]": "обед", "[3]": "ужин", "[4]": "закуска", "[5]": "Ошибка!"}
+voc = {"[1]": "Это кушают на завтрак",
+       "[2]": "Можно и на обед",
+       "[3]": "Отужинать бы этим",
+       "[4]": "Не главное блюдо трапезы",
+       "[5]": "Только этим нельзя наесться"}
 
 ingrs_list = []
 for ingrs_str in x:
@@ -48,12 +52,24 @@ print("LEARNING END")
 app = Flask(__name__)
 
 
-@app.route("/", method=['GET', 'POST'])
+def give_me_ingrs(url):
+    return ""
+
+
+@app.route('/js/<path:path>')
+def send_js(path):
+    return send_from_directory('static/js', path)
+
+
+@app.route("/", methods=['GET', 'POST'])
 def hello():
+    ingrs = give_me_ingrs(request.form.get('url')).upper().split(',')
     a = np.zeros(len(ingrs_list), dtype=int)
-    for i, _ in enumerate(a):
-        if random.randint(0, 100) < 15:
-            a[i] = 1
+
+    for i, ing in enumerate(ingrs):
+        if ing in ingrs_list:
+            a[ingrs_list.index(ing)] = 1
+
     return render_template('index.tpl', num=voc[str(clf.predict(fit.transform(a)))])
 
 
